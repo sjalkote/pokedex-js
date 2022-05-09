@@ -93,7 +93,7 @@ function App() {
           <label>
             <input
               type="text"
-              role={"pokemon-query-box"}
+              role={"searchbox"}
               onChange={handleSearchBoxChange}
               placeholder="Pokemon name"
             />

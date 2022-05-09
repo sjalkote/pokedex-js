@@ -3,6 +3,6 @@ import App from "./App";
 
 test("Renders Pokemon search box", () => {
   render(<App />);
-  const queryBox = screen.getByRole("pokemon-query-box");
+  const queryBox = screen.getByRole("searchbox");
   expect(queryBox).toBeInTheDocument();
 });
