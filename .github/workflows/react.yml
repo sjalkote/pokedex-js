@@ -20,13 +20,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: 📦 Install packages w/ Node.js ${{ matrix.node-version }}
+      - name: 📦🛠🧪 Install packages, build project, and run tests
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
       - run: npm ci
-      - name: 🛠 Build project
       - run: npm run build --if-present
-      - name: 🧪 Run tests
       - run: npm run test
