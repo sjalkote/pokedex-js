@@ -3,8 +3,15 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 20vmin;
+  /* Prevents the mouse from turning into a pointer when hovered over. */
   pointer-events: none;
+  /* Ensures that the logo doesn't get selected by the user's cursor. */
+  -khtml-user-select: none;
+  -o-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
