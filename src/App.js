@@ -77,7 +77,7 @@ function App() {
         return (
           <div>
             <h5 style={{ textTransform: "capitalize" }}>{pokemon}</h5>
-            Type : <code>{pokemonType}</code>
+            Type: <code>{pokemonType}</code>
           </div>
         );
       })}
@@ -86,21 +86,25 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={pokeballIcon} className="App-logo" alt="logo" />
-        <p>Welcome to PokédexJS!</p>
+      <div className="Title-navbar">
+        <img src={pokeballIcon} className="Title-logo" alt="logo" />
+        <h1>pokédex-js</h1>
+      </div>
+      <div className="App-content">
         <form onSubmit={handleFormSubmit}>
           <label>
             <input
-              type="text"
-              role={"searchbox"}
+              placeholder="Pokémon name"
               onChange={handleSearchBoxChange}
-              placeholder="Pokemon name"
+              type="text"
+              role="searchbox"
+              autoComplete="off"
+              required
             />
           </label>
         </form>
         {pokemonAPIContent}
-      </header>
+      </div>
     </div>
   );
 }

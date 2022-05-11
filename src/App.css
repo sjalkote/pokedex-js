@@ -1,9 +1,25 @@
-.App {
-  text-align: center;
+/* Add a black background color to the top navigation */
+.Title-navbar {
+  background-color: darkred;
+  overflow: hidden;
 }
 
-.App-logo {
-  height: 20vmin;
+/* Style the links inside the navigation bar */
+.Title-navbar h1 {
+  float: left;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.Title-logo {
+  float: left;
+  padding: 10px 5px;
+  height: 50px;
+  width: 50px;
   /* Prevents the mouse from turning into a pointer when hovered over. */
   pointer-events: none;
   /* Ensures that the logo doesn't get selected by the user's cursor. */
@@ -14,28 +30,15 @@
   user-select: none;
 }
 
+/* TODO: Add mobile view, maybe center logo & title */
+
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  .Title-logo {
+    animation: Title-logo-spin infinite 25s linear;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
+@keyframes Title-logo-spin {
   from {
     transform: rotate(0deg);
   }

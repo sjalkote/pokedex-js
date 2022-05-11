@@ -1,6 +1,6 @@
 {
-  "short_name": "Pokedex-js",
-  "name": "PokedexJS",
+  "short_name": "pokedex-js",
+  "name": "pokedex-js",
   "icons": [
     {
       "src": "favicon.ico",
