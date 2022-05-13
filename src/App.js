@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-// TODO: Use unique favicon
+import PokemonInfo from "./components/PokemonInfo"
 import pokeballIcon from "./pokeball_icon.svg";
 import "./App.css";
 
@@ -11,7 +11,7 @@ function App() {
    * Used to determine if 'tutorial' message should be shown. */
   const [isQueryAvailable, setIsQueryAvailable] = useState(false);
   /** Marks the Pokemon being requested. */
-  const [pokemon, setPokemon] = useState("pikachu");
+  const [pokemon, setPokemon] = useState("");
   /** Marks the Pokemon query input from the user (before submit). */
   const [pokemonQuery, setPokemonQuery] = useState("");
   /** Holds the API data for the pokemon. */
@@ -72,13 +72,9 @@ function App() {
     <div>Fetching data...</div>
   ) : (
     <div>
-      {/* TODO: Convert to neat table, and add more data like different forms. */}
       {pokemonData.map((data) => {
         return (
-          <div>
-            <h5 style={{ textTransform: "capitalize" }}>{pokemon}</h5>
-            Type: <code>{pokemonType}</code>
-          </div>
+          <PokemonInfo name={pokemon} type={pokemonType} />
         );
       })}
     </div>
