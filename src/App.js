@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import PokemonInfo from "./components/PokemonInfo"
+import PokemonInfo from "./components/PokemonInfo";
 import pokeballIcon from "./pokeball_icon.svg";
 import "./App.css";
 
@@ -73,8 +73,11 @@ function App() {
   ) : (
     <div>
       {pokemonData.map((data) => {
-        return (
-          <PokemonInfo name={pokemon} type={pokemonType} />
+      return (
+          <PokemonInfo 
+            name={pokemon} 
+            type={pokemonType} 
+            sprite={data.sprites.front_default} />
         );
       })}
     </div>
@@ -95,6 +98,8 @@ function App() {
               type="text"
               role="searchbox"
               autoComplete="off"
+              autoCorrect="off"
+              spellCheck="false"
               required
             />
           </label>
