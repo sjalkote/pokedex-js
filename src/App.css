@@ -1,6 +1,7 @@
 /* Add a black background color to the top navigation */
 .Title-navbar {
   background-color: darkred;
+  margin-left: -5px;
   overflow: hidden;
 }
 
@@ -30,8 +31,35 @@
   user-select: none;
 }
 
+.App {
+  margin-left: 5px;
+}
+
 .pokemon-searchbox {
+  font-size: 16px; /* Prevents iPhone from zooming into form. */
+  margin-top: 5px;
+  border: 3px solid darkred;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: black;
+}
+
+.pokemon-searchbox:focus {
+  color: darkred;
+}
+
+.pokemon-searchbutton {
+  display: inline-block;
+  padding: 7.8px 15px;
   font-size: 16px;
+  border-radius: 0;
+  -webkit-appearance: none;
+  text-align: center;
+  color: white;
+  border: 1px solid transparent;
+  background-color: darkred;
 }
 
 /* TODO: Add mobile view, maybe center logo & title */

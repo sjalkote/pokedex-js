@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import PokemonInfo from "./components/PokemonInfo";
 import pokeballIcon from "./pokeball_icon.svg";
@@ -93,19 +94,20 @@ function App() {
       </div>
       <div className="App-content">
         <form onSubmit={handleFormSubmit}>
-          <label>
-            <input
-              className="pokemon-searchbox"
-              placeholder="Pokémon name"
-              onChange={handleSearchBoxChange}
-              type="text"
-              role="searchbox"
-              autoComplete="off"
-              autoCorrect="off"
-              spellCheck="false"
-              required
-            />
-          </label>
+          <input
+            className="pokemon-searchbox"
+            placeholder="Pokémon name"
+            onChange={handleSearchBoxChange}
+            type="text"
+            role="searchbox"
+            autoComplete="off"
+            autoCorrect="off"
+            spellCheck="false"
+            required
+          />
+          <button type="submit" className="pokemon-searchbutton">
+            <FontAwesomeIcon icon="fa-solid fa-arrow-right-to-bracket" />
+          </button>
         </form>
         {pokemonAPIContent}
       </div>
