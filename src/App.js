@@ -73,11 +73,13 @@ function App() {
   ) : (
     <div>
       {pokemonData.map((data) => {
-      return (
-          <PokemonInfo 
-            name={pokemon} 
-            type={pokemonType} 
-            sprite={data.sprites.front_default} />
+        return (
+          <PokemonInfo
+            id={data.id}
+            name={pokemon}
+            type={pokemonType}
+            sprite={data.sprites.front_default}
+          />
         );
       })}
     </div>
