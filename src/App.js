@@ -95,6 +95,7 @@ function App() {
         <form onSubmit={handleFormSubmit}>
           <label>
             <input
+              className="pokemon-searchbox"
               placeholder="Pokémon name"
               onChange={handleSearchBoxChange}
               type="text"

@@ -30,6 +30,10 @@
   user-select: none;
 }
 
+.pokemon-searchbox {
+  font-size: 16px;
+}
+
 /* TODO: Add mobile view, maybe center logo & title */
 
 @media (prefers-reduced-motion: no-preference) {
