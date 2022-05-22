@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import PokemonInfo from "./components/PokemonInfo";
@@ -11,6 +11,8 @@ function App() {
   /** Intended for the first run, tracks if a query has been submitted before.
    * Used to determine if 'tutorial' message should be shown. */
   const [isQueryAvailable, setIsQueryAvailable] = useState(false);
+  /** Used to suggest a pokemon in the search box placeholder. */
+  const [suggestedPokemon, setSuggestedPokemon] = useState("");
   /** Marks the Pokemon being requested. */
   const [pokemon, setPokemon] = useState("");
   /** Marks the Pokemon query input from the user (before submit). */
@@ -19,6 +21,23 @@ function App() {
   const [pokemonData, setPokemonData] = useState([]);
   /** Holds the Pokemon's energy type for easy access, taken from API data. */
   const [pokemonType, setPokemonType] = useState("");
+
+  /** Retrieves a random Pokemon, intended for the search box suggestion. */
+  const suggestPokemon = async () => {
+    const ENDPOINT =
+      "https://pokeapi.co/api/v2/pokemon/" +
+      Math.floor(Math.random() * 899).toString();
+    axios(ENDPOINT).then((res) => {
+      if (res.data.forms[0].name) {
+        setSuggestedPokemon(
+          res.data.forms[0].name.charAt(0).toUpperCase() +
+            res.data.forms[0].name.slice(1)
+        );
+      } else {
+        setSuggestedPokemon("Pikachu");
+      }
+    });
+  };
 
   /** Modifies the {@link pokemonQuery} to reflect changes in user input. */
   const handleSearchBoxChange = (e) => {
@@ -68,7 +87,7 @@ function App() {
 
   // TODO: Animated loading? e.g. dots bounce up
   const pokemonAPIContent = !isQueryAvailable ? (
-    <div>Enter a Pokemon to see its data!</div>
+    <div>Enter a Pokémon name or ID to see its data!</div>
   ) : isLoading ? (
     <div>Fetching data...</div>
   ) : (
@@ -86,6 +105,10 @@ function App() {
     </div>
   );
 
+  useEffect(() => {
+    suggestPokemon();
+  }, []);
+
   return (
     <div className="App">
       <div className="Title-navbar">
@@ -96,7 +119,7 @@ function App() {
         <form onSubmit={handleFormSubmit}>
           <input
             className="pokemon-searchbox"
-            placeholder="Pokémon name"
+            placeholder={suggestedPokemon}
             onChange={handleSearchBoxChange}
             type="text"
             role="searchbox"

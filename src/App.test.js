@@ -1,5 +1,8 @@
 import { render, screen } from "@testing-library/react";
+import addIcons from "./addFaIcons";
 import App from "./App";
+
+addIcons();
 
 test("Renders app logo", () => {
   render(<App />);
