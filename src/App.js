@@ -129,7 +129,7 @@ function App() {
             required
           />
           <button type="submit" className="pokemon-searchbutton">
-            <FontAwesomeIcon icon="fa-solid fa-arrow-right-to-bracket" />
+            Search <FontAwesomeIcon icon="fa-solid fa-arrow-right-to-bracket" />
           </button>
         </form>
         {pokemonAPIContent}
