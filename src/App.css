@@ -50,7 +50,11 @@
   color: darkred;
 }
 
-.pokemon-searchbutton {
+button {
+  cursor: pointer;
+}
+
+.pokemon-searchButton {
   display: inline-block;
   padding: 7.8px 15px;
   font-size: 16px;

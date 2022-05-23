@@ -45,11 +45,12 @@ function App() {
   };
 
   /** Handles tasks when the user submits a Pokemon query. */
-  const handleFormSubmit = (e) => {
+  const submitForm = (e) => {
     e.preventDefault();
     setIsQueryAvailable(true);
     setIsLoading(true);
     getPokemonData();
+    suggestPokemon();
   };
 
   /** Retrieves the Pokemon's API data using the query given by the user. */
@@ -95,6 +96,7 @@ function App() {
       {pokemonData.map((data) => {
         return (
           <PokemonInfo
+            key={pokemon + "-pokemon-info"}
             id={data.id}
             name={pokemon}
             type={pokemonType}
@@ -117,7 +119,7 @@ function App() {
         <h1>pokédex-js</h1>
       </div>
       <div className="App-content">
-        <form onSubmit={handleFormSubmit}>
+        <form onSubmit={submitForm}>
           <input
             className="pokemon-searchbox"
             placeholder={suggestedPokemon}
@@ -130,8 +132,8 @@ function App() {
             autoFocus
             required
           />
-          <button type="submit" className="pokemon-searchbutton">
-            Search <FontAwesomeIcon icon="fa-solid fa-arrow-right-to-bracket" />
+          <button type="submit" className="pokemon-searchButton">
+            <FontAwesomeIcon icon="fa-solid fa-magnifying-glass-arrow-right" />
           </button>
         </form>
         {pokemonAPIContent}

@@ -1,21 +1,25 @@
 import PropTypes from "prop-types";
 
 const PokemonInfo = (pokemon) => {
-  // TODO: Convert to neat table, and add more data, e.g forms
+  // TODO: Add more data, e.g forms
   return (
-    <div>
+    <div style={{ display: "table" }}>
       <h4 style={{ textTransform: "capitalize" }}>
         {pokemon.name} <i style={{ color: "gray" }}>#{pokemon.id}</i>
       </h4>
       <img src={pokemon.sprite} alt={pokemon.name + " sprite"} />
-      <tr>
-        <td className="b">Type </td>
-        <td>{pokemon.type}</td>
-      </tr>
-      <tr>
-        <td className="b">Height</td>
-        <td>{convertHeight(pokemon.height)}</td>
-      </tr>
+      <table>
+        <tbody>
+          <tr>
+            <td className="b">Type </td>
+            <td>{pokemon.type}</td>
+          </tr>
+          <tr>
+            <td className="b">Height</td>
+            <td>{convertHeight(pokemon.height)}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 };
