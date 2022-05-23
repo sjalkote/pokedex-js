@@ -99,6 +99,7 @@ function App() {
             name={pokemon}
             type={pokemonType}
             sprite={data.sprites.front_default}
+            height={data.height}
           />
         );
       })}
@@ -126,6 +127,7 @@ function App() {
             autoComplete="off"
             autoCorrect="off"
             spellCheck="false"
+            autoFocus
             required
           />
           <button type="submit" className="pokemon-searchbutton">
