@@ -22,6 +22,10 @@ const PokemonInfo = (pokemon) => {
             <td className="b">Height</td>
             <td>{convertHeight(pokemon.height)}</td>
           </tr>
+          <tr>
+            <td className="b">Weight</td>
+            <td>{convertWeight(pokemon.weight)}</td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -34,6 +38,7 @@ PokemonInfo.propTypes = {
   type1: PropTypes.object.isRequired,
   type2: PropTypes.object,
   height: PropTypes.number.isRequired,
+  weight: PropTypes.number.isRequired,
 };
 
 // TODO: Make region specific formats (feet in US only)
@@ -43,6 +48,19 @@ var convertHeight = (height) => {
   let feet = Math.floor(totalInches / 12);
   let inches = Math.round(totalInches % 12);
   return feet + "' " + inches + '"';
+};
+
+// TODO: Make region specific formats (pounds in US only)
+/** Converts the hectogram value to pounds. */
+var convertWeight = (weight) => {
+  // If the weight in pounds is less than one, display in ounces.
+  if (weight / 4.536 > 1) {
+    // Round the value in pounds
+    return Math.round(weight / 4.536) + " lbs.";
+  } else {
+    // Convert the value to ounces
+    return Math.round(weight * 3.527) + " oz.";
+  }
 };
 
 export default PokemonInfo;

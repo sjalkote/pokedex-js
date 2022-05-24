@@ -103,6 +103,7 @@ function App() {
             type2={pokemonTypes[1]}
             sprite={data.sprites.front_default}
             height={data.height}
+            weight={data.weight}
           />
         );
       })}
