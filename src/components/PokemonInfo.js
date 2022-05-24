@@ -12,7 +12,11 @@ const PokemonInfo = (pokemon) => {
         <tbody>
           <tr>
             <td className="b">Type </td>
-            <td>{pokemon.type}</td>
+            <td>
+              {/* TODO: Add pokedex for types, use the `url` param in the types array if needed. */}
+              {pokemon.type1.type.name +
+                (pokemon.type2 != null ? ", " + pokemon.type2.type.name : "")}
+            </td>
           </tr>
           <tr>
             <td className="b">Height</td>
@@ -27,7 +31,8 @@ const PokemonInfo = (pokemon) => {
 PokemonInfo.propTypes = {
   id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
+  type1: PropTypes.object.isRequired,
+  type2: PropTypes.object,
   height: PropTypes.number.isRequired,
 };
 

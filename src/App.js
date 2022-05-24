@@ -20,7 +20,7 @@ function App() {
   /** Holds the API data for the pokemon. */
   const [pokemonData, setPokemonData] = useState([]);
   /** Holds the Pokemon's energy type for easy access, taken from API data. */
-  const [pokemonType, setPokemonType] = useState("");
+  const [pokemonTypes, setPokemonTypes] = useState([]);
 
   /** Retrieves a random Pokemon, intended for the search box suggestion. */
   const suggestPokemon = async () => {
@@ -66,7 +66,7 @@ function App() {
 
         if (res.data) {
           pokemonDataArray.push(res.data);
-          setPokemonType(res.data.types[0].type.name);
+          setPokemonTypes(res.data.types);
           setPokemon(res.data.forms[0].name);
           console.warn(res.data.types[0].name);
           setPokemonData(pokemonDataArray);
@@ -99,7 +99,8 @@ function App() {
             key={pokemon + "-pokemon-info"}
             id={data.id}
             name={pokemon}
-            type={pokemonType}
+            type1={pokemonTypes[0]}
+            type2={pokemonTypes[1]}
             sprite={data.sprites.front_default}
             height={data.height}
           />
