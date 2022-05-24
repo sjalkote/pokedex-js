@@ -99,9 +99,10 @@ function App() {
             key={pokemon + "-pokemon-info"}
             id={data.id}
             name={pokemon}
+            sprite={data.sprites.front_default}
             type1={pokemonTypes[0]}
             type2={pokemonTypes[1]}
-            sprite={data.sprites.front_default}
+            abilities={data.abilities}
             height={data.height}
             weight={data.weight}
           />

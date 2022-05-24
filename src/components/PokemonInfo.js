@@ -19,6 +19,12 @@ const PokemonInfo = (pokemon) => {
             </td>
           </tr>
           <tr>
+            <td className="b">Abilities</td>
+            <td style={{ whiteSpace: "pre" }}>
+              {readAbilities(pokemon.abilities)}
+            </td>
+          </tr>
+          <tr>
             <td className="b">Height</td>
             <td>{convertHeight(pokemon.height)}</td>
           </tr>
@@ -37,8 +43,28 @@ PokemonInfo.propTypes = {
   name: PropTypes.string.isRequired,
   type1: PropTypes.object.isRequired,
   type2: PropTypes.object,
+  abilities: PropTypes.array.isRequired,
   height: PropTypes.number.isRequired,
   weight: PropTypes.number.isRequired,
+};
+
+// TODO: Link to abilities, make a pokedex page for them
+/** Turns the abilities JSON into a human-readable format. */
+var readAbilities = (abilities) => {
+  let abilityNames = [];
+  console.log(abilities);
+  for (let i = 0; i < 3; i++) {
+    if (typeof abilities[i] === "undefined") {
+      break;
+    }
+    console.log(abilities[i].ability.name ?? "");
+    abilityNames.push(abilities[i].ability.name ?? "");
+  }
+  return (
+    (abilityNames[0] ?? "") +
+    (abilityNames[1] ? ", " + abilityNames[1] : "") +
+    (abilityNames[2] ? ", \n" + abilityNames[2] + " (Hidden)" : "")
+  );
 };
 
 // TODO: Make region specific formats (feet in US only)
