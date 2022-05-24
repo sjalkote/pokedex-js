@@ -52,12 +52,10 @@ PokemonInfo.propTypes = {
 /** Turns the abilities JSON into a human-readable format. */
 var readAbilities = (abilities) => {
   let abilityNames = [];
-  console.log(abilities);
   for (let i = 0; i < 3; i++) {
     if (typeof abilities[i] === "undefined") {
       break;
     }
-    console.log(abilities[i].ability.name ?? "");
     abilityNames.push(abilities[i].ability.name ?? "");
   }
   return (
